@@ -1,25 +1,27 @@
-import './globals.css';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import { Metadata } from 'next';
+import { Inter } from 'next/font/google'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import './globals.css'
 
-export const metadata: Metadata = {
-  title: 'Burundi Business Formation',
-  description: 'Quick and easy business setup in Burundi',
-};
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata = {
+  title: 'QuickStart Business - Set Up Your Business Fast',
+  description: 'Set up your business in minutes with QuickStart Business',
+}
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">
+      <body className={`${inter.className} min-h-screen bg-gray-100`}>
         <Header />
-        <main className="flex-grow">{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
-  );
+  )
 }
